@@ -1,7 +1,5 @@
 package src;
 
-import java.util.Arrays;
-
 public class FindOptionsForSquares
 {
     private boolean check(int[] arr, int value)
@@ -47,23 +45,19 @@ public class FindOptionsForSquares
 
     public int[][][] findOptions(int[][] board)
     {
+        int[][][] options = new int[9][9][9];
 
-        final int ROWS = 9;
-        final int COLUMNS = 9;
-        final int OPTIONS = 9;
-        int[][][] options = new int[ROWS][COLUMNS][OPTIONS];
-
-        for(int i = 0; i  < ROWS; ++i)
+        for(int i = 0; i  < 9; ++i)
         {
-            for(int j = 0; j  < COLUMNS; ++j)
+            for(int j = 0; j  < 9; ++j)
             {
                 if(board[i][j] == 0)
                 {
-                    for(int k = 0; k < OPTIONS; ++k)
+                    for(int k = 0; k < 9; ++k)
                         options[i][j][k] = k+1;
 
 
-                    for(int k = 0; k < COLUMNS; ++k)
+                    for(int k = 0; k < 9; ++k)
                     {
                         if(board[i][k] != 0 && check(options[i][j], board[i][k]))
                         {
@@ -72,7 +66,7 @@ public class FindOptionsForSquares
                     }
 
 
-                    for(int k = 0; k < ROWS; ++k)
+                    for(int k = 0; k < 9; ++k)
                     {
                         if(board[k][j] != 0 && check(options[i][j], board[k][j]))
                         {
@@ -131,8 +125,6 @@ public class FindOptionsForSquares
                             }
                         }
                     }
-
-                    //System.out.println(Arrays.toString(options[i][j]));
                 }
             }
         }

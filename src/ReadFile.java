@@ -15,7 +15,7 @@ public class ReadFile
 
         try
         {
-            File file = new File("sudoku2.txt");
+            File file = new File("sudoku4.txt");
             Scanner myReader = new Scanner(file);
 
             while (myReader.hasNextLine())
