@@ -4,34 +4,30 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ReadFile
-{
-    public int[][] gettingNumArray()
-    {
+public class ReadFile {
+
+    public int[][] gettingNumArray() {
+
         String[] line;
         final int ROWS = 9;
         final int COLUMNS = 9;
         int[][] numbers = new int[ROWS][COLUMNS];
 
-        try
-        {
-            File file = new File("sudoku4.txt");
+        try {
+            File file = new File("sudoku.txt"); //Change to name of your file containing unsolved Sudoku
             Scanner myReader = new Scanner(file);
 
-            while (myReader.hasNextLine())
-            {
-                for (int i = 0; i < numbers.length; ++i)
-                {
+            while (myReader.hasNextLine()) {
+                for (int i = 0; i < numbers.length; ++i) {
+
                     line = myReader.nextLine().trim().split(" ");
-                    for (int j = 0; j < line.length; ++j)
-                    {
+
+                    for (int j = 0; j < line.length; ++j) {
                         numbers[i][j] = Integer.parseInt(line[j]);
                     }
                 }
             }
-        }
-        catch (FileNotFoundException e)
-        {
+        } catch (FileNotFoundException e) {
             System.out.println("Can't open file");
             e.printStackTrace();
         }
